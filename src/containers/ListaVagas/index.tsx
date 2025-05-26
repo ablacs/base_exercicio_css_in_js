@@ -3,7 +3,8 @@ import FormVagas from '../../components/FormVagas'
 
 import Vaga from '../../components/Vaga'
 
-import styles from './ListaVagas.module.css'
+import { Container } from '../../styles'
+import { VagasUl } from './styles'
 
 type Vaga = {
   id: string
@@ -97,9 +98,9 @@ const ListaVagas = () => {
   )
 
   return (
-    <div>
+    <Container>
       <FormVagas aoPesquisar={(termo: string) => setFiltro(termo)} />
-      <ul className={styles.vagas}>
+      <VagasUl>
         {vagasFiltradas.map((vag) => (
           <Vaga
             key={vag.id}
@@ -112,8 +113,8 @@ const ListaVagas = () => {
             requisitos={vag.requisitos}
           />
         ))}
-      </ul>
-    </div>
+      </VagasUl>
+    </Container>
   )
 }
 
